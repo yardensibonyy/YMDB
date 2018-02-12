@@ -7,7 +7,7 @@ require('./models/movies');
 
 const app = express();
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 mongoose.connect(keys.mongoURI);
 
