@@ -2,6 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://ymdb12345.herokuapp.com/",
   "proxy": {
     "/api/*": {
       "target": "http://localhost:8080",
