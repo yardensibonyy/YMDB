@@ -59,8 +59,6 @@ module.exports = (app) => {
             if(!movies) {
                 return res.status(412).send({error: 'No match. Try again.'});
             }
-            
-            //logic to send back a list of {movie:avg rank}
             const match = movies.map((movie) => {
                 return {
                     name: movie.name,
