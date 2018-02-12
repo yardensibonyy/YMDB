@@ -15,11 +15,7 @@ require('./routes/apiRoutes')(app);
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
-
-    app.get('/*', (req, res, err) => {
-        if(err) {
-            res.status(412).send(err);
-        }
+    app.get('/*', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
