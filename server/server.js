@@ -7,29 +7,16 @@ require('./models/movies');
 
 const app = express();
 
-app.use(bodyParser.json());
-
 mongoose.connect(keys.mongoURI);
+app.use(bodyParser.json());
 
 require('./routes/apiRoutes')(app);
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-console.log(path.join(__dirname,'client', 'build'));
-
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
-
-// if(process.env.NODE_ENV === 'production') {
-//     //Express will serve up production assests like main.js or main.css file.
-//     app.use(express.static('client/build'));
-
-//     //Express will serve up index.html file if it doesn't recognize the route (e.g react route)
-//     app.get('*', (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-//     });
-// }
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
