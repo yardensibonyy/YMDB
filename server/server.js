@@ -13,7 +13,7 @@ mongoose.connect(keys.mongoURI);
 
 require('./routes/apiRoutes')(app);
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 console.log(path.join(__dirname,'client', 'build'));
 
