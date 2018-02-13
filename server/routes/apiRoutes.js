@@ -1,12 +1,8 @@
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const {Movie} = require('../models/movies');
-// mongodb://yarden:mongo17@ds229438.mlab.com:29438/ymdb-prod
 
 module.exports = (app) => {
-    // app.get('/', (req, res) => {
-    //     res.status(200).send('Hello world');
-    // });
 
     //PROXY CHECK
     app.get('/api/aaa', (req, res) => {

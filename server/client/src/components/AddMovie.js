@@ -35,7 +35,6 @@ class AddMovie extends Component {
         axios.post('/api/add/movie', values)
             .then((res) => {
                 this.setState(() => ({renderMessage: 'success'}));
-                console.log(res)
             })
             .catch((e) => {
                 if(e.response.status === 412) {
