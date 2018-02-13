@@ -13,9 +13,6 @@ mongoose.connect(keys.mongoURI);
 
 require('./routes/apiRoutes')(app);
 
-console.log(path.resolve(__dirname, 'client', 'build', 'index.html'));
-console.log(path.join(__dirname, 'client', 'build', 'index.html'));
-
 if(process.env.NODE_ENV === 'production') {
     //Express will serve up production assests like main.js or main.css file.
     app.use(express.static('client/build'));
@@ -25,10 +22,6 @@ if(process.env.NODE_ENV === 'production') {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
-
-app.get('/', (req, res) => {
-    res.send({hi: 'there'});
-});
 
 const port = process.env.PORT || 8080;
 app.listen(port, () => {
